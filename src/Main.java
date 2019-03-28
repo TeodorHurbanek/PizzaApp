@@ -11,6 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
         String pathToMain = "sample/main.fxml";
 
         URL mainURL = getClass().getResource(pathToMain);
@@ -19,11 +20,14 @@ public class Main extends Application {
 
         Scene scene = new Scene(parent);
 
-        primaryStage.setFullScreen(true);
+        //metoda setMaximized, kt. zvacsuje okno po zapnuti
+        primaryStage.setMaximized(true);
         primaryStage.setTitle("PizzaApp");
 //        primaryStage.getIcons().add(new Image("sk/holic/chat/IT6.png"));
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        System.out.printf("Hello");
     }
 
 
