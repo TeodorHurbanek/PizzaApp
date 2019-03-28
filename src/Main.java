@@ -2,12 +2,16 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.net.URL;
 
 public class Main extends Application {
+
+    static {
+        Font.loadFont(Main.class.getResource("sample/css/fontawesome/font/fontawesome-webfont.ttf").toExternalForm(), 10);
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -19,6 +23,7 @@ public class Main extends Application {
         Parent parent = FXMLLoader.load(mainURL);
 
         Scene scene = new Scene(parent);
+
 
         //metoda setMaximized, kt. zvacsuje okno po zapnuti
         primaryStage.setMaximized(true);
