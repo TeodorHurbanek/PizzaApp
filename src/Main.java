@@ -23,7 +23,7 @@ public class Main extends Application {
         //metoda setMaximized, kt. zvacsuje okno po zapnuti
         primaryStage.setMaximized(true);
         primaryStage.setTitle("PizzaApp");
-        primaryStage.getIcons().add(new Image("images/pizzaIcon.png"));
+        //primaryStage.getIcons().add(new Image("images/pizzaIcon.png")); <- ZADNA SLOZKA IMAGES NIKDE NENI KOKOTKO
         primaryStage.setScene(scene);
         primaryStage.show();
 

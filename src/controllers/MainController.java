@@ -20,7 +20,7 @@ public class MainController implements Initializable {
     }
 
     private Parent loadFX(String name) {
-        String pathToMain = "../sample"+ name +".fxml";
+        String pathToMain = "../sample/"+ name +".fxml";
 
         URL mainURL = getClass().getResource(pathToMain);
 
