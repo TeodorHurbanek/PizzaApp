@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: aqua;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UvodController">
+   <children>
+      <Label text="MOTTO" />
+      <Label text="ADRESA" />
+      <Label text="OTV.DOBA" />
+      <Label text="ROZVOZ" />
+      <Label text="TEL.CISLO" />
+      <Label text="EMAIL" />
+   </children>
+</VBox>
