@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
@@ -8,45 +9,64 @@
 
 <BorderPane fx:id="mainPage" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <top>
-      <HBox alignment="TOP_RIGHT" prefHeight="150.0" prefWidth="800.0" style="-fx-background-color: #c2c8d1;" BorderPane.alignment="CENTER_RIGHT">
+      <HBox alignment="TOP_RIGHT" prefHeight="150.0" prefWidth="800.0" style="-fx-background-color: #3f4651;" BorderPane.alignment="CENTER_RIGHT">
          <children>
-            <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="160.0" text="Pizza PaSaT" textFill="WHITE">
+            <ImageView fx:id="logoPizza" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin></ImageView>
+            <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Pizza PaSaT" textFill="WHITE">
                <HBox.margin>
                   <Insets right="400.0" top="50.0" />
                </HBox.margin>
                <font>
-                  <Font name="Forte" size="29.0" />
+                  <Font name="Forte" size="40.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onUvodClick" prefHeight="50.0" prefWidth="100.0" text="UVOD">
+            <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onUvodClick" style="-fx-background-color: #FCD18C;" text="UVOD" textFill="#3f4651">
                <HBox.margin>
                   <Insets top="50.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Bodoni MT Bold" size="24.0" />
+               </font>
             </Button>
-            <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="MENU">
+            <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onMenuClick" style="-fx-background-color: #FCD18C;" text="MENU" textFill="#3f4651">
                <HBox.margin>
                   <Insets left="150.0" top="50.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Bodoni MT Bold" size="24.0" />
+               </font>
             </Button>
-            <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="LOGIN">
+            <Button alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: #FCD18C;" text="LOGIN" textFill="#3f4651">
                <HBox.margin>
                   <Insets left="150.0" top="50.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Bodoni MT Bold" size="24.0" />
+               </font>
             </Button>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-font-family: FontAwesome;" text="KOS">
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: #FCD18C;" text="KOS" textFill="#3f4651">
                <HBox.margin>
                   <Insets left="150.0" right="300.0" top="50.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Bodoni MT Bold" size="24.0" />
+               </font>
             </Button>
          </children></HBox>
    </top>
    <left>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #565656;" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #565656;" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+      <HBox alignment="BOTTOM_RIGHT" minHeight="-Infinity" prefHeight="100.0" style="-fx-background-color: #3f4651;" BorderPane.alignment="BOTTOM_CENTER">
+         <children>
+            <Label minHeight="-Infinity" minWidth="-Infinity" text="©PaSaT 2019" textFill="#b2b2b2" />
+         </children></HBox>
    </bottom>
 </BorderPane>

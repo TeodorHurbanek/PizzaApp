@@ -1,19 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: aqua;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UvodController">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #636363;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UvodController">
    <children>
-      <Label text="MOTTO" />
-      <Label text="ADRESA" />
-      <Label text="OTV.DOBA" />
-      <Label text="ROZVOZ" />
-      <Label text="TEL.CISLO" />
-      <Label text="EMAIL" />
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label minWidth="-Infinity" text="&quot;Nechajte našu pizzu" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT Bold Italic" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label minWidth="-Infinity" text=" zahriat vaše srdce.&quot;" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT Bold Italic" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="700.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label minWidth="-Infinity" text="ADRESA:" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label minWidth="-Infinity" text="Námestie sv. Martina 5, Holíc" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label text="OTVÁRACIA DOBA:" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label text="Po - Pia: 9:00 - 22:00" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label text="So - Ne: 9:00 - 2:00" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label text="ROZVOZ:" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label text="Po - Pia: 10:00 - 21:00" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label text="So - Ne: 10:00 - 23:00" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label text="TEL.CISLO: 0904469812" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label minWidth="-Infinity" text="EMAIL: pizzapassat@mail.sk" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="19.0" />
+                     </font></Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets top="50.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="BOTTOM_CENTER">
+         <children>
+            <Label alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" style="-fx-border-color: grey;" text="Tri Najoblúbenejšie Pizze" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT Bold Italic" size="30.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label minWidth="-Infinity" style="-fx-border-color: grey;" text="Provincionale" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="19.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="pizzaFav1" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+               <HBox.margin>
+                  <Insets right="50.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="CENTER" minWidth="-Infinity" style="-fx-border-color: grey;" text="SanDaniele" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="19.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="pizzaFav2" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets right="50.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label style="-fx-border-color: grey;" text="Margherita" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="19.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="pizzaFav3" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets top="50.0" />
+         </VBox.margin>
+      </HBox>
    </children>
 </VBox>
