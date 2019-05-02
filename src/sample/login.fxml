@@ -1,8 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox alignment="CENTER" style="-fx-background-color: #636363;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+   <children>
+      <Label text="Administrácia" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT" size="30.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </Label>
+      <HBox alignment="CENTER" prefWidth="550.0">
+         <children>
+            <TextField fx:id="meno" maxWidth="-Infinity" prefWidth="500.0" promptText="Meno" style="-fx-border-color: white; -fx-background-color: #636363; -fx-color: #636363;">
+               <font>
+                  <Font name="Bodoni MT" size="19.0" />
+               </font>
+            </TextField>
+            <Label fx:id="errorText" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefWidth="550.0">
+         <children>
+            <PasswordField fx:id="heslo" maxWidth="-Infinity" prefWidth="500.0" promptText="Heslo" style="-fx-border-color: white; -fx-background-color: #636363;">
+               <font>
+                  <Font name="Bodoni MT" size="19.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </PasswordField>
+            <Label fx:id="errorText1" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="19.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <Button mnemonicParsing="false" onAction="#onLoginButtonClick" style="-fx-background-color: #636363; -fx-border-color: white;" text="LOGIN" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>
