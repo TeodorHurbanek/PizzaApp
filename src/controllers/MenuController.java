@@ -19,7 +19,7 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String url = "jdbc:mysql://localhost:3306/pizza_app?useSSL=false";
+       /* String url = "jdbc:mysql://localhost:3306/pizza_app?useSSL=false";
         String user = "root";
         String password = "root";
 
@@ -33,6 +33,6 @@ public class MenuController implements Initializable {
             PreparedStatement preparedStatement = this.connection.prepareStatement("SELECT * FROM menu");
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        } */
     }
 }

@@ -23,7 +23,7 @@ public class MainController implements Initializable {
 
     /*BUTTON UVOD - metoda*/
     public void onUvodClick(ActionEvent event) throws IOException {
-        mainPage.setCenter(loadFX("uvod"));
+        mainPage.setCenter(loadFX ("uvod"));
         System.out.println("U ve clicked on UVODpage");
     }
 
@@ -31,6 +31,11 @@ public class MainController implements Initializable {
     public void onMenuClick() {
         mainPage.setCenter(loadFX("menu"));
         System.out.println("U ve clicked on MENUpage");
+    }
+
+    public void onLoginClick() {
+        mainPage.setCenter(loadFX("login"));
+        System.out.println("U ve clicked on LOGINpage");
     }
 
     /* cesta k fxmlkam*/
