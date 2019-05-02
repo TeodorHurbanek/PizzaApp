@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-//This is test comment
+
 public class MainController implements Initializable {
 
     public BorderPane mainPage;

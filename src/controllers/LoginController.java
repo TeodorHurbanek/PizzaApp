@@ -32,15 +32,36 @@ public class LoginController implements Initializable {
     private Connection connection;
 
     public void onLoginButtonClick(ActionEvent event) {
+        System.out.println("Uve clicked on LoginButton");
+        if (isAdminLoggedIn() == false) {
+            errorText.setText("Chybne meno.");
+            errorText1.setText("Chybne heslo.");
+        } else {
+            meno.setText("");
+            heslo.setText("");
+            mainPage.setCenter(loadFX("admin"));
+        }
+    }
+
+    private boolean isAdminLoggedIn () {
         String name = this.meno.getText();
         String pass = this.heslo.getText();
+        try {
+            String query = "SELECT * FROM pizza_app.administracia WHERE meno = ? and heslo = ?";
+            PreparedStatement preparedStatement = this.connection.prepareStatement(query);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, pass);
 
-        /*try {
-            PreparedStatement preparedStatement = this.connection.prepareStatement("");
-
+            ResultSet rs = preparedStatement.executeQuery() ;
+            if(rs.next()) {
+                return true ;
+            }else {
+                return false ;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-        }*/
+        }
+        return false;
     }
 
     private Parent loadFX(String name) {
@@ -61,7 +82,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /*String url = "jdbc:mysql://localhost:3306/pizza_app?useSSL=false";
+        String url = "jdbc:mysql://localhost:3306/pizza_app?useSSL=false";
         String user = "root";
         String password = "root";
 
@@ -69,6 +90,6 @@ public class LoginController implements Initializable {
             this.connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e){
             e.printStackTrace();
-        }*/
+        }
     }
 }
