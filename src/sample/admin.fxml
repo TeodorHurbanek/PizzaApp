@@ -8,12 +8,24 @@
 <?import javafx.scene.layout.*?>
 
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #636363;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminController">
+<HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminController">
    <children>
-      <Label alignment="CENTER" text="Aministrácia" textFill="WHITE">
-         <font>
-            <Font name="Bodoni MT" size="30.0" />
-         </font>
-      </Label>
+      <VBox>
+         <children>
+            <Label alignment="CENTER" text="Aministrácia" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="30.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableAdmin" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0">
+              <columns>
+                <TableColumn fx:id="col_id" prefWidth="34.0" text="c." />
+                <TableColumn fx:id="col_nazov" prefWidth="67.0" text="nazov" />
+                  <TableColumn fx:id="col_ingrediencie" prefWidth="155.0" text="ingrediencie" />
+                  <TableColumn fx:id="col_cena" prefWidth="44.0" text="cena" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
    </children>
-</VBox>
+</HBox>

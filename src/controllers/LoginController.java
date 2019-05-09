@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -16,9 +17,6 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
-
-    @FXML
-    public BorderPane mainPage;
 
     @FXML
     private TextField meno;
@@ -34,12 +32,28 @@ public class LoginController implements Initializable {
     public void onLoginButtonClick(ActionEvent event) {
         System.out.println("Uve clicked on LoginButton");
         if (isAdminLoggedIn() == false) {
+            System.out.println("Wrong name or password!");
             errorText.setText("Chybne meno.");
             errorText1.setText("Chybne heslo.");
         } else {
+            System.out.println("Successfuly logged in.");
+            /* cestka k adminovi snad.. */
+            try {
+                FXMLLoader fxmlLoader = MainController.getMainController().loadFXML("admin");
+
+                Parent parent = fxmlLoader.load();
+
+                MainController.getMainController().mainPage.setCenter(parent);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            /* koneeeeeec */
+            //mainController.mainPage.setCenter(loadFX("admin"));
             meno.setText("");
             heslo.setText("");
-            mainPage.setCenter(loadFX("admin"));
+            errorText.setText("");
+            errorText1.setText("");
         }
     }
 
@@ -64,7 +78,18 @@ public class LoginController implements Initializable {
         return false;
     }
 
-    private Parent loadFX(String name) {
+    public FXMLLoader loadFXML(String name) {
+
+        String pathToMain = "../sample /" + name + ".fxml";
+
+        URL mainURL = getClass().getResource(pathToMain);
+
+        FXMLLoader fxmlLoader = new FXMLLoader(mainURL);
+
+        return fxmlLoader;
+    }
+
+    /*private Parent loadFX(String name) {
 
         String pathToMain = "../sample/"+ name +".fxml";
 
@@ -78,7 +103,7 @@ public class LoginController implements Initializable {
         }
 
         return parent;
-    }
+    }*/
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

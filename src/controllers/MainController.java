@@ -16,6 +16,27 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
+    /* cestka k adminovi snad.. */
+
+    private static MainController mainController;
+
+    public static MainController getMainController() {
+        return mainController;
+    }
+
+    public FXMLLoader loadFXML(String name) {
+
+        String pathToMain = "../sample/" + name + ".fxml";
+
+        URL mainURL = getClass().getResource(pathToMain);
+
+        FXMLLoader fxmlLoader = new FXMLLoader(mainURL);
+
+        return fxmlLoader;
+    }
+
+    /* koneeeeeec */
+
     public BorderPane mainPage;
 
     @FXML
@@ -34,7 +55,7 @@ public class MainController implements Initializable {
     }
 
     public void onLoginClick() {
-        mainPage.setCenter(loadFX("login"));
+        mainPage.setCenter(loadFX("admin"));
         System.out.println("U ve clicked on LOGINpage");
     }
 
