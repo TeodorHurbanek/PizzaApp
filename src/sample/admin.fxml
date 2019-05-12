@@ -11,7 +11,7 @@
 
 <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #636363;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminController">
    <children>
-      <VBox>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
          <children>
             <HBox alignment="CENTER">
                <children>
@@ -30,7 +30,7 @@
                   </Button>
                </children>
             </HBox>
-            <TableView fx:id="tableAdmin" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/table.css">
+            <TableView fx:id="tableAdmin" stylesheets="@../css/table.css">
               <columns>
                 <TableColumn fx:id="col_id" prefWidth="34.0" text="c." />
                 <TableColumn fx:id="col_nazov" prefWidth="200.0" text="NAZOV" />
@@ -53,7 +53,7 @@
                         <Font name="Bodoni MT" size="20.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: red;" text="VYMAZAT" textFill="WHITE">
+                  <Button fx:id="onVymazatButtonClick" mnemonicParsing="false" style="-fx-background-color: red;" text="VYMAZAT" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
@@ -77,7 +77,7 @@
             </HBox>
          </children>
          <HBox.margin>
-            <Insets top="25.0" />
+            <Insets top="40.0" />
          </HBox.margin>
       </VBox>
    </children>

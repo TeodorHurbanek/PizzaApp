@@ -24,6 +24,8 @@ import java.util.logging.Logger;
 
 public class AdminController implements Initializable {
 
+    private Connection connection;
+
     @FXML
     private TableView<ModelTable> tableAdmin;
     @FXML
@@ -37,6 +39,10 @@ public class AdminController implements Initializable {
 
     ObservableList<ModelTable> observableList = FXCollections.observableArrayList();
 
+    public void onVymazatButtonClick(ActionEvent event)  {
+        System.out.println("U ve clicked on VymazatButton");
+    }
+
     public void onLogoutButtonClick(ActionEvent event) {
         System.out.println("Admin have loged out.");
         try {
@@ -49,17 +55,6 @@ public class AdminController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public FXMLLoader loadFXML(String name) {
-
-        String pathToMain = "../sample /" + name + ".fxml";
-
-        URL mainURL = getClass().getResource(pathToMain);
-
-        FXMLLoader fxmlLoader = new FXMLLoader(mainURL);
-
-        return fxmlLoader;
     }
 
     @Override

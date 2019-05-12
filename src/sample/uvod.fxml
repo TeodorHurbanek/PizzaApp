@@ -81,7 +81,7 @@
                         <Font name="Bodoni MT" size="19.0" />
                      </font>
                   </Label>
-                  <Label minWidth="-Infinity" text="EMAIL: pizzapassat@mail.sk" textFill="WHITE">
+                  <Label minWidth="-Infinity" text="EMAIL: pizzatapas@mail.sk" textFill="WHITE">
                      <font>
                         <Font name="Bodoni MT" size="19.0" />
                      </font></Label>

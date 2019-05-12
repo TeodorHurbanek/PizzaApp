@@ -51,7 +51,7 @@
             <Insets top="10.0" />
          </VBox.margin>
       </HBox>
-      <Button mnemonicParsing="false" onAction="#onLoginButtonClick" style="-fx-background-color: #636363; -fx-border-color: white;" text="LOGIN" textFill="WHITE">
+      <Button fx:id="loginButton" mnemonicParsing="false" onAction="#onLoginButtonClick" style="-fx-background-color: #636363; -fx-border-color: white;" text="LOGIN" textFill="WHITE">
          <font>
             <Font name="Bodoni MT" size="20.0" />
          </font>

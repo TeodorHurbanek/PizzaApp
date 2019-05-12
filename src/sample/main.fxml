@@ -15,7 +15,7 @@
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin></ImageView>
-            <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Pizza PaSaT" textFill="WHITE">
+            <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Pizza TaPaS" textFill="WHITE">
                <HBox.margin>
                   <Insets right="400.0" top="50.0" />
                </HBox.margin>
@@ -64,9 +64,12 @@
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #565656;" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <HBox alignment="BOTTOM_RIGHT" minHeight="-Infinity" prefHeight="100.0" style="-fx-background-color: #3f4651;" BorderPane.alignment="BOTTOM_CENTER">
+      <HBox alignment="BOTTOM_LEFT" minHeight="-Infinity" prefHeight="100.0" style="-fx-background-color: #3f4651;" BorderPane.alignment="TOP_LEFT">
          <children>
-            <Label minHeight="-Infinity" minWidth="-Infinity" text="©PaSaT 2019" textFill="#b2b2b2" />
+            <Label minHeight="-Infinity" minWidth="-Infinity" text="©TaPaS 2019" textFill="#b2b2b2">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
          </children></HBox>
    </bottom>
 </BorderPane>

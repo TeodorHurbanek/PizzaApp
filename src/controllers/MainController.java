@@ -44,23 +44,50 @@ public class MainController implements Initializable {
 
     /*BUTTON UVOD - metoda*/
     public void onUvodClick(ActionEvent event) throws IOException {
-        mainPage.setCenter(loadFX ("uvod"));
+        try {
+
+            FXMLLoader fxmlLoader = loadFXML("uvod");
+
+            Parent parent = fxmlLoader.load();
+            mainPage.setCenter(parent);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         System.out.println("U ve clicked on UVODpage");
     }
 
     /*BUTTON MENU - metoda*/
-    public void onMenuClick() {
-        mainPage.setCenter(loadFX("menu"));
+    public void onMenuClick(ActionEvent event) {
+        try {
+
+            FXMLLoader fxmlLoader = loadFXML("menu");
+
+            Parent parent = fxmlLoader.load();
+            mainPage.setCenter(parent);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         System.out.println("U ve clicked on MENUpage");
     }
 
-    public void onLoginClick() {
-        mainPage.setCenter(loadFX("admin"));
+    public void onLoginClick(ActionEvent event) {
+        try {
+
+            FXMLLoader fxmlLoader = loadFXML("login");
+
+            Parent parent = fxmlLoader.load();
+            mainPage.setCenter(parent);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         System.out.println("U ve clicked on LOGINpage");
     }
 
     /* cesta k fxmlkam*/
-    private Parent loadFX(String name) {
+    /*private Parent loadFX(String name) {
 
         String pathToMain = "../sample/"+ name +".fxml";
 
@@ -74,12 +101,22 @@ public class MainController implements Initializable {
         }
 
         return parent;
-    }
+    }*/
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         /* staticky nastaveny UVOD do stredu stranky */
-        mainPage.setCenter(loadFX("uvod"));
+        mainController = this;
+        try {
+            FXMLLoader fxmlLoader = loadFXML("uvod");
+
+            Parent parent = fxmlLoader.load();
+
+            mainPage.setCenter(parent);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Image logo = new Image("/images/pizzaIcon.png");
         logoPizza.setImage(logo);
     }
