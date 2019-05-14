@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #636363;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+         <HBox.margin>
+            <Insets top="40.0" />
+         </HBox.margin>
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" text="Kos Admin" textAlignment="RIGHT" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="30.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="20.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <TableView fx:id="tableKosAdmin" stylesheets="@../css/table.css">
+              <columns>
+                <TableColumn prefWidth="34.0" text="c." />
+                <TableColumn prefWidth="200.0" text="nazov" />
+                  <TableColumn prefWidth="75.0" text="cena" />
+                  <TableColumn prefWidth="75.0" text="meno" />
+                  <TableColumn prefWidth="75.0" text="adresa" />
+                  <TableColumn prefWidth="75.0" text="telefonne c" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</HBox>
