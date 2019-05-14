@@ -35,6 +35,9 @@ public class LoginController implements Initializable {
 
     private Connection connection;
 
+    /* TO DO
+        Update onLoginButtonClick chybne meno || chybne heslo
+     */
     public void onLoginButtonClick(ActionEvent event) throws IOException{
         System.out.println("Uve clicked on LoginButton");
         if (isAdminLoggedIn() == false) {
@@ -54,36 +57,6 @@ public class LoginController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-            //loginButton.getScene().getWindow().hide();
-
-            /*Parent root = FXMLLoader.load(getClass().getResource("../sample/admin.fxml"));
-            Node node = (Node) event.getSource();
-            MainController mainController = new MainController();
-            mainController.getMainPage().setCenter(root);*/
-            //Stage stage = (Stage) node.getScene().getWindow();
-            //stage.setScene(new Scene(root));
-
-            //Stage adminStage = new Stage();
-            //Parent root = FXMLLoader.load(getClass().getResource("../sample/admin.fxml"));
-            /*MainController mainController = new MainController();
-
-            mainController.mainPage.setCenter(root);*/
-
-
-
-            /* cestka k adminovi snad.. */
-            /*try {
-                FXMLLoader fxmlLoader = MainController.getMainController().loadFXML("admin");
-
-                Parent parent = fxmlLoader.load();
-
-                MainController.getMainController().mainPage.setCenter(parent);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
-            /* koneeeeeec */
-            //mainController.mainPage.setCenter(loadFX("admin"));
             meno.setText("");
             heslo.setText("");
             errorText.setText("");
@@ -111,33 +84,6 @@ public class LoginController implements Initializable {
         }
         return false;
     }
-
-    public FXMLLoader loadFXML(String name) {
-
-        String pathToMain = "../sample /" + name + ".fxml";
-
-        URL mainURL = getClass().getResource(pathToMain);
-
-        FXMLLoader fxmlLoader = new FXMLLoader(mainURL);
-
-        return fxmlLoader;
-    }
-
-    /*private Parent loadFX(String name) {
-
-        String pathToMain = "../sample/"+ name +".fxml";
-
-        URL mainURL = getClass().getResource(pathToMain);
-
-        Parent parent = null;
-        try {
-            parent = FXMLLoader.load(mainURL);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return parent;
-    }*/
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

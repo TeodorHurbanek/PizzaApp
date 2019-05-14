@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.swing.text.TabableView;
@@ -37,10 +38,96 @@ public class AdminController implements Initializable {
     @FXML
     private TableColumn<ModelTable, String> col_cena;
 
+    @FXML
+    private TextField nazovField;
+    @FXML
+    private TextField ingrediencieField;
+    @FXML
+    private TextField cenaField;
+
     ObservableList<ModelTable> observableList = FXCollections.observableArrayList();
+
+    public void onPridatButtonClick(ActionEvent event) {
+        System.out.println("U ve clicked on PridatButton");
+
+        String namePizza = nazovField.getText();
+        String ingredienciePizza = ingrediencieField.getText();
+        String pricePizza = cenaField.getText();
+
+        try {
+            Connection connection = DbConnector.getConnection();
+
+            PreparedStatement preparedStatement =
+                    connection.prepareStatement(
+                            "INSERT INTO menu " +
+                                    "(nazov_pizza, ingrediencie, cena) " +
+                                    "VALUES " +
+                                    "(?, ?, ?)");
+
+            preparedStatement.setString(1, namePizza);
+            preparedStatement.setString(2, ingredienciePizza);
+            preparedStatement.setString(3, pricePizza);
+
+            int result = preparedStatement.executeUpdate();
+
+            if (result == 1) {
+                System.out.println("INSERT INTO menu");
+                nazovField.setText("");
+                ingrediencieField.setText("");
+                cenaField.setText("");
+            } else {
+                System.out.println("insert error");
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onShowButtonClick(ActionEvent event) {
+        System.out.println("U ve clicked on UkazButton");
+
+        try {
+            Connection connection = DbConnector.getConnection();
+
+            ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM pizza_app.menu");
+
+            while (rs.next()){
+                observableList.add(new ModelTable(
+                        rs.getString("id_pizza"), rs.getString("nazov_pizza"),
+                        rs.getString("ingrediencie"), rs.getString("cena")));
+            }
+
+        } catch (SQLException e) {
+            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        col_nazov.setCellValueFactory(new PropertyValueFactory<>("name"));
+        col_ingrediencie.setCellValueFactory(new PropertyValueFactory<>("ingrediencies"));
+        col_cena.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        tableAdmin.setItems(observableList);
+    }
 
     public void onVymazatButtonClick(ActionEvent event)  {
         System.out.println("U ve clicked on VymazatButton");
+
+        ObservableList<ModelTable> allProduct, SingleProduct;
+        allProduct = tableAdmin.getItems();
+        SingleProduct = tableAdmin.getSelectionModel().getSelectedItems();
+        try {
+            Connection connection = DbConnector.getConnection();
+
+            PreparedStatement st = connection.prepareStatement("DELETE FROM pizza_app.menu WHERE nazov_pizza = " + SingleProduct/*TO DO*/ + ";");
+            st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        SingleProduct.forEach(allProduct::remove);
+
+
     }
 
     public void onLogoutButtonClick(ActionEvent event) {

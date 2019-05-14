@@ -8,7 +8,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #636363;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminController">
    <children>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
@@ -38,9 +37,21 @@
                   <TableColumn fx:id="col_cena" prefWidth="50.0" text="CENA" />
               </columns>
             </TableView>
-            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="TOP_CENTER" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: yellow;" text="PRIDAT">
+                  <TextField fx:id="nazovField" maxHeight="1.7976931348623157E308" promptText="NAZOV">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="ingrediencieField" maxHeight="1.7976931348623157E308" promptText="INGREDIENCIE">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="cenaField" maxHeight="1.7976931348623157E308" promptText="CENA">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></TextField>
+                  <Button mnemonicParsing="false" onAction="#onPridatButtonClick" style="-fx-background-color: green;" text="PRIDAT" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
@@ -48,15 +59,22 @@
                         <Font name="Bodoni MT" size="20.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: green;" text="EDITOVAT" textFill="WHITE">
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onShowButtonClick" style="-fx-background-color: blue;" text="UKAZ" textFill="WHITE">
                      <font>
                         <Font name="Bodoni MT" size="20.0" />
                      </font>
-                  </Button>
-                  <Button fx:id="onVymazatButtonClick" mnemonicParsing="false" style="-fx-background-color: red;" text="VYMAZAT" textFill="WHITE">
                      <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets right="10.0" />
                      </HBox.margin>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#onVymazatButtonClick" style="-fx-background-color: red;" text="VYMAZAT" textFill="WHITE">
                      <font>
                         <Font name="Bodoni MT" size="20.0" />
                      </font>
