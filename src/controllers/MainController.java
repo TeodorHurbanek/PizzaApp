@@ -72,6 +72,18 @@ public class MainController implements Initializable {
         }
         System.out.println("U ve clicked on MENUpage");
     }
+//  button kos - metoda
+    private void onKosclick(ActionEvent event){
+        try {
+            FXMLLoader fxmlLoader = loadFXML("kos");
+
+            Parent parent = fxmlLoader.load();
+            mainPage.setCenter(parent);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        System.out.println("Klikli ste na kos");
+    }
 
 //    Button addButton = new Button("Add");
 //
@@ -113,6 +125,9 @@ public class MainController implements Initializable {
 
         return parent;
     }*/
+
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
