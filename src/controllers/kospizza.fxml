@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="661.0" prefWidth="557.0" style="-fx-background-color: #636363;" stylesheets="@../IdeaProjects/pizzashop_fx/src/css/table.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+   <children>
+      <HBox prefHeight="50.0" prefWidth="100.0">
+         <children>
+            <Label prefHeight="46.0" prefWidth="50.0" text="Koš" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="30.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets left="250.0" />
+         </padding>
+      </HBox>
+      <TableView prefHeight="84.0" prefWidth="575.0">
+        <columns>
+          <TableColumn prefWidth="295.0" text="Názov " />
+          <TableColumn prefWidth="141.0" text="Cena" />
+            <TableColumn prefWidth="213.0" text="Vymazat" />
+        </columns>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="200.0" left="10.0" />
+         </padding>
+      </TableView>
+      <HBox prefHeight="225.0" prefWidth="575.0">
+         <VBox.margin>
+            <Insets bottom="50.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="50.0" left="10.0" />
+         </padding>
+         <children>
+            <Button mnemonicParsing="false" onAction="#pokracovat" style="-fx-background-color: #636363; -fx-border-color: white;" text="Spať na menu " textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="120.0" top="100.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#pokracovat" style="-fx-background-color: #636363; -fx-border-color: white;" text="Pokračovat" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="130.0" top="100.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
