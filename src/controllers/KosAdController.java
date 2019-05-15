@@ -50,4 +50,7 @@ public class KosAdController {
 
     public void setPizzaNazov(String pizzaNazov) {
     }
+
+    public void setPizzaCena() {
+    }
 }

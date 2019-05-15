@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -71,6 +72,16 @@ public class MainController implements Initializable {
         }
         System.out.println("U ve clicked on MENUpage");
     }
+
+//    Button addButton = new Button("Add");
+//
+//    public Button getAddButton() {
+//        KosAdController pizza = new KosAdController();
+//        pizza.setPizzaCena();
+//        pizza.
+//    }
+
+
 
     public void onLoginClick(ActionEvent event) {
         try {

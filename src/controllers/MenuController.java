@@ -2,6 +2,7 @@ package controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -31,6 +32,8 @@ public class MenuController implements Initializable {
 
     private Connection connection;
 
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -47,6 +50,7 @@ public class MenuController implements Initializable {
         } catch (SQLException e) {
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, e);
         }
+
 
         col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         col_nazov.setCellValueFactory(new PropertyValueFactory<>("name"));

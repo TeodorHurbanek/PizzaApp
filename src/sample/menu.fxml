@@ -7,7 +7,9 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+
 <!-- KOMENT DAJ MNA DO PICE -->
+
 <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #636363;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuController">
    <children>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
@@ -36,6 +38,11 @@
          <HBox.margin>
             <Insets top="40.0" />
          </HBox.margin>
+      </VBox>
+      <VBox fx:id="addButton">
+         <children>
+            <Button fx:id="addButtonTo" contentDisplay="CENTER" mnemonicParsing="false" text=" Vlozit do kosiku" translateY="430.0" />
+         </children>
       </VBox>
    </children>
 </HBox>
