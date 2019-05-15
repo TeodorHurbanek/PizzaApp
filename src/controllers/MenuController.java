@@ -32,8 +32,7 @@ public class MenuController implements Initializable {
 
     private Connection connection;
 
-
-
+//    pripojeni a vzpisani z databaze do tableview
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {

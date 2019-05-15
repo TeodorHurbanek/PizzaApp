@@ -5,6 +5,7 @@ import java.util.List;
 
 public class KosController {
 
+//    kos kontroler
 
         List <Integer> pizzaId;
         List<String> pizzaNazov;
