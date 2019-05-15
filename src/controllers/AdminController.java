@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -44,49 +45,92 @@ public class AdminController implements Initializable {
     private TextField ingrediencieField;
     @FXML
     private TextField cenaField;
+    @FXML
+    private TextField idField;
+    @FXML
+    private TextField idEdit;
+    @FXML
+    private TextField nazovEdit;
+    @FXML
+    private TextField ingrediencieEdit;
+    @FXML
+    private TextField cenaEdit;
+
+    @FXML
+    private Label errorTextAdmin;
 
     ObservableList<ModelTable> observableList = FXCollections.observableArrayList();
 
-    public void onPridatButtonClick(ActionEvent event) {
-        System.out.println("U ve clicked on PridatButton");
+    public void onKosAdminButtonClick(ActionEvent event) {
+        System.out.println("U ve clicked on KosAdmin.");
 
-        String namePizza = nazovField.getText();
-        String ingredienciePizza = ingrediencieField.getText();
-        String pricePizza = cenaField.getText();
+        try{
 
-        try {
-            Connection connection = DbConnector.getConnection();
+            FXMLLoader fxmlLoader = MainController.getMainController().loadFXML("kosAdController");
 
-            PreparedStatement preparedStatement =
-                    connection.prepareStatement(
-                            "INSERT INTO menu " +
-                                    "(nazov_pizza, ingrediencie, cena) " +
-                                    "VALUES " +
-                                    "(?, ?, ?)");
+            Parent parent = fxmlLoader.load();
 
-            preparedStatement.setString(1, namePizza);
-            preparedStatement.setString(2, ingredienciePizza);
-            preparedStatement.setString(3, pricePizza);
+            MainController.getMainController().mainPage.setCenter(parent);
 
-            int result = preparedStatement.executeUpdate();
-
-            if (result == 1) {
-                System.out.println("INSERT INTO menu");
-                nazovField.setText("");
-                ingrediencieField.setText("");
-                cenaField.setText("");
-            } else {
-                System.out.println("insert error");
-            }
-
-
-        } catch (SQLException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    public void onPridatButtonClick(ActionEvent event) {
+        System.out.println("U ve clicked on PridatButton.");
+
+        if (nazovField.getText().isEmpty() == true) {
+            System.out.println("Empty NazovField!");
+            errorTextAdmin.setText("Vyplnte nazov pizze!");
+        } else if (ingrediencieField.getText().isEmpty() == true) {
+            System.out.println("Empty IngredniencieField");
+            errorTextAdmin.setText("Vyplnte ingredniecie pizze!");
+        } else if (cenaField.getText().isEmpty() == true) {
+            System.out.println("Empty CenaField!");
+            errorTextAdmin.setText("Vyplnte cenu pizze!");
+        } else {
+            String namePizza = nazovField.getText();
+            String ingredienciePizza = ingrediencieField.getText();
+            String pricePizza = cenaField.getText();
+
+            try {
+                Connection connection = DbConnector.getConnection();
+
+                PreparedStatement preparedStatement =
+                        connection.prepareStatement(
+                                "INSERT INTO menu " +
+                                        "(nazov_pizza, ingrediencie, cena) " +
+                                        "VALUES " +
+                                        "(?, ?, ?)");
+
+                preparedStatement.setString(1, namePizza);
+                preparedStatement.setString(2, ingredienciePizza);
+                preparedStatement.setString(3, pricePizza);
+
+                int result = preparedStatement.executeUpdate();
+
+                if (result == 1) {
+                    System.out.println("INSERT INTO menu");
+                    nazovField.setText("");
+                    ingrediencieField.setText("");
+                    cenaField.setText("");
+                    errorTextAdmin.setText("");
+
+                } else {
+                    System.out.println("insert error");
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void onShowButtonClick(ActionEvent event) {
-        System.out.println("U ve clicked on UkazButton");
+        System.out.println("U ve clicked on UkazButton.");
+
+        tableAdmin.getItems().clear();
 
         try {
             Connection connection = DbConnector.getConnection();
@@ -102,32 +146,95 @@ public class AdminController implements Initializable {
         } catch (SQLException e) {
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, e);
         }
+    }
 
-        col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        col_nazov.setCellValueFactory(new PropertyValueFactory<>("name"));
-        col_ingrediencie.setCellValueFactory(new PropertyValueFactory<>("ingrediencies"));
-        col_cena.setCellValueFactory(new PropertyValueFactory<>("price"));
+    public void onEditButtonClick(ActionEvent event) {
+        System.out.println("U ve clicked on EditButton.");
 
-        tableAdmin.setItems(observableList);
+        if (idEdit.getText().isEmpty() == true) {
+            System.out.println("Empty idEditField!");
+            errorTextAdmin.setText("Vyplnte id pizze na editaciu!");
+        } else if (nazovEdit.getText().isEmpty() == true && ingrediencieEdit.getText().isEmpty() == true && cenaEdit.getText().isEmpty() == true) {
+            System.out.println("Every field is epmty!");
+            errorTextAdmin.setText("Vyplnte polia!");
+        }
+        else {
+            if (nazovEdit.getText().isEmpty() == true) {
+                System.out.println("Empty nazovEditField!");
+                errorTextAdmin.setText("Vyplnte nazov pizze na editaciu!");
+            } else {
+                try {
+                    Connection connection = DbConnector.getConnection();
+
+                    PreparedStatement st = connection.prepareStatement(
+                            "UPDATE pizza_app.menu SET nazov_pizza = '" + nazovEdit.getText() +"' WHERE id_pizza = "+ idEdit.getText() + ";");
+                    st.executeUpdate();
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                idEdit.setText("");
+                nazovEdit.setText("");
+                errorTextAdmin.setText("");
+            }
+
+            if (ingrediencieEdit.getText().isEmpty() == true) {
+                System.out.println("Empty ingrediencieField!");
+                errorTextAdmin.setText("Vyplnte ingredienciu pizze na editaciu!");
+            } else {
+                try {
+                    Connection connection = DbConnector.getConnection();
+
+                    PreparedStatement st = connection.prepareStatement(
+                            "UPDATE pizza_app.menu SET ingrediencie = '" + ingrediencieEdit.getText() +"' WHERE id_pizza = "+ idEdit.getText() + ";");
+                    st.executeUpdate();
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                idEdit.setText("");
+                ingrediencieEdit.setText("");
+                errorTextAdmin.setText("");
+            }
+
+            if (cenaEdit.getText().isEmpty() == true) {
+                System.out.println("Empty cenaField!");
+                errorTextAdmin.setText("Vyplnte cenu pizze na editaciu!");
+            } else {
+                try {
+                    Connection connection = DbConnector.getConnection();
+
+                    PreparedStatement st = connection.prepareStatement(
+                            "UPDATE pizza_app.menu SET cena = '" + cenaEdit.getText() +"' WHERE id_pizza = "+ idEdit.getText() + ";");
+                    st.executeUpdate();
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                idEdit.setText("");
+                cenaEdit.setText("");
+                errorTextAdmin.setText("");
+            }
+            errorTextAdmin.setText("");
+        }
     }
 
     public void onVymazatButtonClick(ActionEvent event)  {
-        System.out.println("U ve clicked on VymazatButton");
+        System.out.println("U ve clicked on VymazatButton.");
 
-        ObservableList<ModelTable> allProduct, SingleProduct;
-        allProduct = tableAdmin.getItems();
-        SingleProduct = tableAdmin.getSelectionModel().getSelectedItems();
+        if (idField.getText().isEmpty() == true) {
+            System.out.println("Empty idFiled!");
+            errorTextAdmin.setText("Vyplnte id pizze na vymazanie!");
+        }
         try {
             Connection connection = DbConnector.getConnection();
 
-            PreparedStatement st = connection.prepareStatement("DELETE FROM pizza_app.menu WHERE nazov_pizza = " + SingleProduct/*TO DO*/ + ";");
+            PreparedStatement st = connection.prepareStatement("DELETE FROM pizza_app.menu WHERE id_pizza = " + idField.getText() + ";");
             st.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        SingleProduct.forEach(allProduct::remove);
-
-
+        idField.setText("");
     }
 
     public void onLogoutButtonClick(ActionEvent event) {
@@ -148,7 +255,7 @@ public class AdminController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         try {
-            Connection connection = DbConnector.getConnection();
+             Connection connection = DbConnector.getConnection();
 
             ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM pizza_app.menu");
 

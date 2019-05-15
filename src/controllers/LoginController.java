@@ -43,6 +43,9 @@ public class LoginController implements Initializable {
         if (isAdminLoggedIn() == false) {
             System.out.println("Wrong name or password!");
             errorText.setText("Chybne meno.");
+            //errorText1.setText("Chybne heslo.");
+        } else if (isAdminLoggedInPass() == false) {
+            System.out.println("Wrong pass");
             errorText1.setText("Chybne heslo.");
         } else {
             System.out.println("Successfuly logged in.");
@@ -66,12 +69,12 @@ public class LoginController implements Initializable {
 
     private boolean isAdminLoggedIn () {
         String name = this.meno.getText();
-        String pass = this.heslo.getText();
+        //String pass = this.heslo.getText();
         try {
-            String query = "SELECT * FROM pizza_app.administracia WHERE meno = ? and heslo = ?";
+            String query = "SELECT * FROM pizza_app.administracia WHERE meno = ?";
             PreparedStatement preparedStatement = this.connection.prepareStatement(query);
             preparedStatement.setString(1, name);
-            preparedStatement.setString(2, pass);
+            //preparedStatement.setString(2, pass);
 
             ResultSet rs = preparedStatement.executeQuery() ;
             if(rs.next()) {
@@ -84,6 +87,28 @@ public class LoginController implements Initializable {
         }
         return false;
     }
+
+    private boolean isAdminLoggedInPass () {
+        String pass = this.heslo.getText();
+
+        try {
+            String query = "SELECT * FROM pizza_app.administracia WHERE heslo = ?";
+            PreparedStatement preparedStatement = this.connection.prepareStatement(query);
+            preparedStatement.setString(1, pass);
+
+            ResultSet rs = preparedStatement.executeQuery() ;
+            if(rs.next()) {
+                return true ;
+            }else {
+                return false ;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

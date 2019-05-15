@@ -22,7 +22,7 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #636363; -fx-border-color: white;" text="KOS Administracia" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#onKosAdminButtonClick" style="-fx-background-color: #636363; -fx-border-color: white;" text="KOS Administracia" textFill="WHITE">
                      <font>
                         <Font name="Bodoni MT" size="20.0" />
                      </font>
@@ -37,24 +37,56 @@
                   <TableColumn fx:id="col_cena" prefWidth="50.0" text="CENA" />
               </columns>
             </TableView>
-            <HBox alignment="TOP_CENTER" prefWidth="200.0">
+            <HBox alignment="CENTER" prefWidth="200.0">
                <children>
-                  <TextField fx:id="nazovField" maxHeight="1.7976931348623157E308" promptText="NAZOV">
+                  <TextField fx:id="nazovField" maxHeight="1.7976931348623157E308" prefWidth="150.0" promptText="NAZOV" style="-fx-background-color: #636363; -fx-border-color: white;">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin></TextField>
-                  <TextField fx:id="ingrediencieField" maxHeight="1.7976931348623157E308" promptText="INGREDIENCIE">
+                  <TextField fx:id="ingrediencieField" maxHeight="1.7976931348623157E308" prefWidth="250.0" promptText="INGREDIENCIE" style="-fx-background-color: #636363; -fx-border-color: white;">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin></TextField>
-                  <TextField fx:id="cenaField" maxHeight="1.7976931348623157E308" promptText="CENA">
+                  <TextField fx:id="cenaField" maxHeight="1.7976931348623157E308" prefWidth="75.0" promptText="CENA" style="-fx-background-color: #636363; -fx-border-color: white;">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin></TextField>
-                  <Button mnemonicParsing="false" onAction="#onPridatButtonClick" style="-fx-background-color: green;" text="PRIDAT" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#onPridatButtonClick" style="-fx-background-color: yellow;" text="PRIDAT">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Bodoni MT" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER">
+               <children>
+                  <TextField fx:id="idEdit" maxHeight="1.7976931348623157E308" prefWidth="50.0" promptText="ID" style="-fx-background-color: #636363; -fx-border-color: white;">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="nazovEdit" maxHeight="1.7976931348623157E308" prefWidth="150.0" promptText="NAZOV" style="-fx-background-color: #636363; -fx-border-color: white;">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="ingrediencieEdit" maxHeight="1.7976931348623157E308" prefWidth="250.0" promptText="INGREDIENCIE" style="-fx-background-color: #636363; -fx-border-color: white;">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="cenaEdit" maxHeight="1.7976931348623157E308" prefWidth="75.0" promptText="CENA" style="-fx-background-color: #636363; -fx-border-color: white;">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#onEditButtonClick" style="-fx-background-color: green;" text="EDITOVAT" textFill="WHITE">
                      <font>
                         <Font name="Bodoni MT" size="20.0" />
                      </font>
@@ -66,6 +98,19 @@
             </HBox>
             <HBox alignment="CENTER" prefWidth="200.0">
                <children>
+                  <TextField fx:id="idField" maxHeight="1.7976931348623157E308" prefWidth="50.0" promptText="ID" style="-fx-background-color: #636363; -fx-border-color: white;">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#onVymazatButtonClick" style="-fx-background-color: red;" text="VYMAZAT" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
                   <Button mnemonicParsing="false" onAction="#onShowButtonClick" style="-fx-background-color: blue;" text="UKAZ" textFill="WHITE">
                      <font>
                         <Font name="Bodoni MT" size="20.0" />
@@ -74,7 +119,26 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#onVymazatButtonClick" style="-fx-background-color: red;" text="VYMAZAT" textFill="WHITE">
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER">
+               <children>
+                  <Label fx:id="errorTextAdmin" alignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onLogoutButtonClick" style="-fx-background-color: #636363; -fx-border-color: white;" text="ODHLASIT SA" textFill="WHITE">
                      <font>
                         <Font name="Bodoni MT" size="20.0" />
                      </font>
@@ -83,15 +147,6 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#onLogoutButtonClick" style="-fx-background-color: #636363; -fx-border-color: white;" text="ODHLASIT SA" textFill="WHITE">
-                     <font>
-                        <Font name="Bodoni MT" size="20.0" />
-                     </font>
-                  </Button>
-               </children>
             </HBox>
          </children>
          <HBox.margin>
