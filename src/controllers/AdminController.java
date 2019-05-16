@@ -278,7 +278,7 @@ public class AdminController implements Initializable {
         } catch (SQLException e) {
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, e);
         }
-
+//samoPicovina
         col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         col_nazov.setCellValueFactory(new PropertyValueFactory<>("name"));
         col_ingrediencie.setCellValueFactory(new PropertyValueFactory<>("ingrediencies"));
