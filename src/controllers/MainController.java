@@ -86,22 +86,19 @@ public class MainController implements Initializable {
         System.out.println("U ve clicked on LOGINpage");
     }
 
-    /* cesta k fxmlkam*/
-    /*private Parent loadFX(String name) {
-
-        String pathToMain = "../sample/"+ name +".fxml";
-
-        URL mainURL = getClass().getResource(pathToMain);
-
-        Parent parent = null;
+    public void onKosClick(ActionEvent event) {
         try {
-            parent = FXMLLoader.load(mainURL);
+
+            FXMLLoader fxmlLoader = loadFXML("kos");
+
+            Parent parent = fxmlLoader.load();
+            mainPage.setCenter(parent);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return parent;
-    }*/
+        System.out.println("U ve clicked on KOSpage");
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

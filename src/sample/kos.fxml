@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #636363;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.KosController">
+   <children>
+      <HBox alignment="CENTER">
+         <children>
+            <Label text="Vasa Objednavka" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <TableView stylesheets="@../css/table.css">
+        <columns>
+          <TableColumn prefWidth="200.0" text="NAZOV" />
+          <TableColumn prefWidth="50.0" text="CENA" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER">
+         <children>
+            <TextField maxHeight="1.7976931348623157E308" prefWidth="50.0" promptText="ID" style="-fx-background-color: #636363; -fx-border-color: white;">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin></TextField>
+            <Button mnemonicParsing="false" onAction="#onVymazatKosButtonClick" style="-fx-background-color: #636363; -fx-border-color: white;" text="VYMAZAT" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onPokracovatKosButtonClick" style="-fx-background-color: #636363; -fx-border-color: white;" text="POKRACOVAT" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

@@ -31,7 +31,7 @@
             </HBox>
             <TableView fx:id="tableAdmin" stylesheets="@../css/table.css">
               <columns>
-                <TableColumn fx:id="col_id" prefWidth="34.0" text="c." />
+                <TableColumn fx:id="col_id" prefWidth="34.0" text="ID" />
                 <TableColumn fx:id="col_nazov" prefWidth="200.0" text="NAZOV" />
                   <TableColumn fx:id="col_ingrediencie" prefWidth="500.0" text="INGREDIENCIE" />
                   <TableColumn fx:id="col_cena" prefWidth="50.0" text="CENA" />

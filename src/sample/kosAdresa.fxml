@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #636363;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.KosAdresaController">
+   <children>
+      <HBox alignment="CENTER">
+         <children>
+            <Label text="Adresa" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="30.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER">
+         <children>
+            <TextField fx:id="menoAdresaField" maxHeight="1.7976931348623157E308" prefWidth="250.0" promptText="Meno" style="-fx-background-color: #636363; -fx-border-color: white;">
+               <HBox.margin>
+                  <Insets bottom="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Bodoni MT" size="19.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefWidth="200.0">
+         <children>
+            <TextField fx:id="ulicaAdresaField" maxHeight="1.7976931348623157E308" prefWidth="250.0" promptText="Ulica" style="-fx-background-color: #636363; -fx-border-color: white;">
+               <HBox.margin>
+                  <Insets bottom="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Bodoni MT" size="19.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefWidth="200.0">
+         <children>
+            <TextField fx:id="cisloDomuAdresaField" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefWidth="250.0" promptText="Cislo domu" style="-fx-background-color: #636363; -fx-border-color: white;">
+               <HBox.margin>
+                  <Insets bottom="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Bodoni MT" size="19.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefWidth="200.0">
+         <children>
+            <TextField fx:id="telcisloAdresaField" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefWidth="250.0" promptText="Tel.cislo" style="-fx-background-color: #636363; -fx-border-color: white;">
+               <HBox.margin>
+                  <Insets bottom="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Bodoni MT" size="19.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onSpatClick" style="-fx-background-color: #636363; -fx-border-color: white;" text="SPAT" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onObjednatButtonClick" style="-fx-background-color: #636363; -fx-border-color: white;" text="OBJEDNAT" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefWidth="200.0">
+         <children>
+            <Label fx:id="objednavkaText" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</VBox>

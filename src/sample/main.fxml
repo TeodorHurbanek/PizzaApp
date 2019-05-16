@@ -47,7 +47,7 @@
                   <Font name="Bodoni MT Bold" size="24.0" />
                </font>
             </Button>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: #FCD18C;" text="KOS" textFill="#3f4651">
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onKosClick" style="-fx-background-color: #FCD18C;" text="KOS" textFill="#3f4651">
                <HBox.margin>
                   <Insets left="150.0" right="300.0" top="50.0" />
                </HBox.margin>

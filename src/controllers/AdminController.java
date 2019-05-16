@@ -64,9 +64,9 @@ public class AdminController implements Initializable {
     public void onKosAdminButtonClick(ActionEvent event) {
         System.out.println("U ve clicked on KosAdmin.");
 
-        try{
+        try {
 
-            FXMLLoader fxmlLoader = MainController.getMainController().loadFXML("kosAdController");
+            FXMLLoader fxmlLoader = MainController.getMainController().loadFXML("kosAdmin");
 
             Parent parent = fxmlLoader.load();
 
@@ -137,7 +137,7 @@ public class AdminController implements Initializable {
 
             ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM pizza_app.menu");
 
-            while (rs.next()){
+            while (rs.next()) {
                 observableList.add(new ModelTable(
                         rs.getString("id_pizza"), rs.getString("nazov_pizza"),
                         rs.getString("ingrediencie"), rs.getString("cena")));
@@ -153,21 +153,20 @@ public class AdminController implements Initializable {
 
         if (idEdit.getText().isEmpty() == true) {
             System.out.println("Empty idEditField!");
-            errorTextAdmin.setText("Vyplnte id pizze na editaciu!");
+            errorTextAdmin.setText("Vyplnte ID pizze pre editaciu!");
         } else if (nazovEdit.getText().isEmpty() == true && ingrediencieEdit.getText().isEmpty() == true && cenaEdit.getText().isEmpty() == true) {
             System.out.println("Every field is epmty!");
             errorTextAdmin.setText("Vyplnte polia!");
-        }
-        else {
+        } else {
             if (nazovEdit.getText().isEmpty() == true) {
                 System.out.println("Empty nazovEditField!");
-                errorTextAdmin.setText("Vyplnte nazov pizze na editaciu!");
+                errorTextAdmin.setText("Vyplnte nazov pizze pre editaciu!");
             } else {
                 try {
                     Connection connection = DbConnector.getConnection();
 
                     PreparedStatement st = connection.prepareStatement(
-                            "UPDATE pizza_app.menu SET nazov_pizza = '" + nazovEdit.getText() +"' WHERE id_pizza = "+ idEdit.getText() + ";");
+                            "UPDATE pizza_app.menu SET nazov_pizza = '" + nazovEdit.getText() + "' WHERE id_pizza = " + idEdit.getText() + ";");
                     st.executeUpdate();
 
                 } catch (SQLException e) {
@@ -180,13 +179,13 @@ public class AdminController implements Initializable {
 
             if (ingrediencieEdit.getText().isEmpty() == true) {
                 System.out.println("Empty ingrediencieField!");
-                errorTextAdmin.setText("Vyplnte ingredienciu pizze na editaciu!");
+                errorTextAdmin.setText("Vyplnte ingredienciu pizze pre editaciu!");
             } else {
                 try {
                     Connection connection = DbConnector.getConnection();
 
                     PreparedStatement st = connection.prepareStatement(
-                            "UPDATE pizza_app.menu SET ingrediencie = '" + ingrediencieEdit.getText() +"' WHERE id_pizza = "+ idEdit.getText() + ";");
+                            "UPDATE pizza_app.menu SET ingrediencie = '" + ingrediencieEdit.getText() + "' WHERE id_pizza = " + idEdit.getText() + ";");
                     st.executeUpdate();
 
                 } catch (SQLException e) {
@@ -199,13 +198,13 @@ public class AdminController implements Initializable {
 
             if (cenaEdit.getText().isEmpty() == true) {
                 System.out.println("Empty cenaField!");
-                errorTextAdmin.setText("Vyplnte cenu pizze na editaciu!");
+                errorTextAdmin.setText("Vyplnte cenu pizze pre editaciu!");
             } else {
                 try {
                     Connection connection = DbConnector.getConnection();
 
                     PreparedStatement st = connection.prepareStatement(
-                            "UPDATE pizza_app.menu SET cena = '" + cenaEdit.getText() +"' WHERE id_pizza = "+ idEdit.getText() + ";");
+                            "UPDATE pizza_app.menu SET cena = '" + cenaEdit.getText() + "' WHERE id_pizza = " + idEdit.getText() + ";");
                     st.executeUpdate();
 
                 } catch (SQLException e) {
@@ -219,22 +218,24 @@ public class AdminController implements Initializable {
         }
     }
 
-    public void onVymazatButtonClick(ActionEvent event)  {
+    public void onVymazatButtonClick(ActionEvent event) {
         System.out.println("U ve clicked on VymazatButton.");
 
         if (idField.getText().isEmpty() == true) {
             System.out.println("Empty idFiled!");
-            errorTextAdmin.setText("Vyplnte id pizze na vymazanie!");
-        }
-        try {
-            Connection connection = DbConnector.getConnection();
+            errorTextAdmin.setText("Vyplnte ID pizze pre vymazanie!");
+        } else {
+            try {
+                Connection connection = DbConnector.getConnection();
 
-            PreparedStatement st = connection.prepareStatement("DELETE FROM pizza_app.menu WHERE id_pizza = " + idField.getText() + ";");
-            st.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+                PreparedStatement st = connection.prepareStatement("DELETE FROM pizza_app.menu WHERE id_pizza = " + idField.getText() + ";");
+                st.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            idField.setText("");
+            errorTextAdmin.setText("");
         }
-        idField.setText("");
     }
 
     public void onLogoutButtonClick(ActionEvent event) {
@@ -251,15 +252,24 @@ public class AdminController implements Initializable {
         }
     }
 
+    private boolean isNumber(String number) {
+        try {
+            Integer.parseInt(number);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         try {
-             Connection connection = DbConnector.getConnection();
+            Connection connection = DbConnector.getConnection();
 
             ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM pizza_app.menu");
 
-            while (rs.next()){
+            while (rs.next()) {
                 observableList.add(new ModelTable(
                         rs.getString("id_pizza"), rs.getString("nazov_pizza"),
                         rs.getString("ingrediencie"), rs.getString("cena")));
