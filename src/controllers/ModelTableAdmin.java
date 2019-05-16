@@ -2,13 +2,13 @@ package controllers;
 
 public class ModelTableAdmin {
 
-    String id, name, price, surname, street, numberStreet, phoneNumber;
+    String id, name, price, firstName, street, numberStreet, phoneNumber;
 
-    public ModelTableAdmin(String id, String name, String price, String surname, String street, String numberStreet, String phoneNumber) {
+    public ModelTableAdmin(String id, String name, String price, String firstName, String street, String numberStreet, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.surname = surname;
+        this.firstName = firstName;
         this.street = street;
         this.numberStreet = numberStreet;
         this.phoneNumber = phoneNumber;
@@ -38,12 +38,12 @@ public class ModelTableAdmin {
         this.price = price;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setFirstName(String surname) {
+        this.firstName = surname;
     }
 
     public String getStreet() {

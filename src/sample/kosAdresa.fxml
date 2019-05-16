@@ -81,6 +81,11 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </Button>
+            <TextField fx:id="idAdresa" maxHeight="1.7976931348623157E308" promptText="Vyplnte ID objednavky" style="-fx-background-color: #636363; -fx-border-color: white;">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </TextField>
             <Button mnemonicParsing="false" onAction="#onObjednatButtonClick" style="-fx-background-color: #636363; -fx-border-color: white;" text="OBJEDNAT" textFill="WHITE">
                <font>
                   <Font name="Bodoni MT" size="20.0" />

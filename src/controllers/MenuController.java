@@ -47,26 +47,43 @@ public class MenuController implements Initializable {
             menuText.setText("Vyplnte ID objednavky!");
         } else {
             String id = idMenu.getText();
+
+            String obj = tableAdmin.getId();
+
             try {
-                Connection connection = DbConnector.getConnection();
 
-                PreparedStatement preparedStatement =
-                        connection.prepareStatement(
-                                "INSERT INTO pizza_app.objednavky " +
-                                        "(nazov, ingrediencie, cena) " +
-                                        " SELECT pizza_app.menu"+ "(nazov_pizza, ingrediencie, cena)"+ "WHERE id = '"+ idMenu.getText() +"'"+ " FROM pizza_app.menu");
+                    Connection connection = DbConnector.getConnection();
 
-                preparedStatement.setString(1, id);
+                    PreparedStatement preparedStatementSelect =
+                            connection.prepareStatement(
+                                    "SELECT * FROM pizza_app.menu WHERE id_pizza = ?"
+                            );
 
-                int result = preparedStatement.executeUpdate();
+                preparedStatementSelect.setInt(1, Integer.valueOf(id));
 
-                if (result == 1) {
-                    System.out.println("INSERT INTO menu");
-                    menuText.setText("Uspesne pridane do kosika.");
-                    idMenu.setText("");
-                } else {
-                    System.out.println("insert error");
+                ResultSet resultSet = preparedStatementSelect.executeQuery();
+
+                if (resultSet.next()) {
+                    PreparedStatement preparedStatementInsert =
+                            connection.prepareStatement(
+                                    "INSERT INTO pizza_app.objednavky " +
+                                            "(nazov, ingrediencie, cena) VALUES (?,?,?)"
+                            );
+                    preparedStatementInsert.setString(1, resultSet.getString("nazov_pizza"));
+                    preparedStatementInsert.setString(2, resultSet.getString("ingrediencie"));
+                    preparedStatementInsert.setString(3, resultSet.getString("cena"));
+
+                    int result = preparedStatementInsert.executeUpdate();
+
+                    if (result == 1) {
+                        System.out.println("INSERT INTO menu");
+                        menuText.setText("Uspesne pridane do kosika.");
+                        idMenu.setText("");
+                    } else {
+                        System.out.println("insert error");
+                    }
                 }
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }

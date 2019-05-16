@@ -7,13 +7,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.net.ConnectException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -41,6 +45,11 @@ public class KosAdminController implements Initializable {
 
     ObservableList<ModelTableAdmin> observableList2 = FXCollections.observableArrayList();
 
+    @FXML
+    private Label errorTextKosAdmin;
+    @FXML
+    private TextField idKosAdmin;
+
     public void onAdminClick(ActionEvent event) {
         System.out.println("U ve clicked on AdminSceneButton.");
 
@@ -54,6 +63,49 @@ public class KosAdminController implements Initializable {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void onVymazatKosAdminClick(ActionEvent event) {
+        System.out.println("U ve clicked on VymazatKosAdminButton.");
+
+        if (idKosAdmin.getText().isEmpty() == true) {
+            System.out.println("Empty idFiled!");
+            errorTextKosAdmin.setText("Vyplnte ID objednavky pre vymazanie!");
+        } else {
+            try {
+                Connection connection = DbConnector.getConnection();
+
+                PreparedStatement st = connection.prepareStatement("DELETE FROM pizza_app.objednavky WHERE id_objednavky = " + idKosAdmin.getText() + ";");
+                st.executeUpdate();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            idKosAdmin.setText("");
+            errorTextKosAdmin.setText("Vymazane");
+        }
+    }
+
+    public void onUkazKosAdminButton(ActionEvent event) {
+        System.out.println("U ve clicked on UkazKosAdminButton");
+
+        tableAdmin2.getItems().clear();
+
+        try {
+            Connection connection = DbConnector.getConnection();
+
+            ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM pizza_app.objednavky");
+
+            while (rs.next()) {
+                observableList2.add(new ModelTableAdmin(
+                        rs.getString("id_objednavky"), rs.getString("nazov"),
+                        rs.getString("cena"), rs.getString("meno"), rs.getString("ulica"),
+                        rs.getString("cislo_domu"), rs.getString("tel_cislo")));
+            }
+
+        } catch (SQLException e) {
+            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, e);
         }
     }
     @Override

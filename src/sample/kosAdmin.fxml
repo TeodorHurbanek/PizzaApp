@@ -26,30 +26,53 @@
                </font>
             </Button>
          </children>
+         <VBox.margin>
+            <Insets top="25.0" />
+         </VBox.margin>
       </HBox>
-      <TableView stylesheets="@../css/table.css">
-        <columns>
-          <TableColumn prefWidth="30.0" text="id" />
-          <TableColumn prefWidth="150.0" text="nazov" />
-            <TableColumn prefWidth="200.0" text="cena" />
-            <TableColumn prefWidth="150.0" text="meno" />
-            <TableColumn prefWidth="150.0" text="ulica" />
-            <TableColumn prefWidth="90.0" text="cislo domu" />
-            <TableColumn prefWidth="100.0" text="tel.cislo" />
-        </columns>
-      </TableView>
       <HBox alignment="CENTER">
          <children>
-            <TextField maxHeight="1.7976931348623157E308" promptText="ID" style="-fx-background-color: #636363; -fx-border-color: white;">
+            <TableView fx:id="tableAdmin2" stylesheets="@../css/table.css">
+              <columns>
+                <TableColumn fx:id="col_id_obj" prefWidth="30.0" text="ID" />
+                <TableColumn fx:id="col_nazov_obj" prefWidth="150.0" text="NAZOV" />
+                  <TableColumn fx:id="col_cena_obj" prefWidth="200.0" text="CENA" />
+                  <TableColumn fx:id="col_meno_obj" prefWidth="150.0" text="MENO" />
+                  <TableColumn fx:id="col_ulica_obj" prefWidth="150.0" text="ULICA" />
+                  <TableColumn fx:id="col_cislo_domu_obj" prefWidth="100.0" text="CISLO DOMU" />
+                  <TableColumn fx:id="col_tel_cislo_obj" prefWidth="100.0" text="TEL.CISLO" />
+              </columns>
+            </TableView>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onUkazKosAdminButton" style="-fx-background-color: #636363; -fx-border-color: white;" text="UKAZ" textFill="WHITE">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
-            </TextField>
-            <Button mnemonicParsing="false" style="-fx-background-color: #636363; -fx-border-color: white;" text="VYMAZAT" textFill="WHITE">
                <font>
                   <Font name="Bodoni MT" size="20.0" />
                </font>
             </Button>
+            <TextField fx:id="idKosAdmin" maxHeight="1.7976931348623157E308" prefWidth="50.0" promptText="ID" style="-fx-background-color: #636363; -fx-border-color: white;">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#onVymazatKosAdminClick" style="-fx-background-color: #636363; -fx-border-color: white;" text="VYMAZAT" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="20.0" />
+               </font>
+            </Button>
+            <Label fx:id="errorTextKosAdmin" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Bodoni MT" size="19.0" />
+               </font>
+            </Label>
          </children>
          <VBox.margin>
             <Insets top="10.0" />

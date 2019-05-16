@@ -18,16 +18,33 @@
                </font>
             </Label>
          </children>
+         <VBox.margin>
+            <Insets top="25.0" />
+         </VBox.margin>
       </HBox>
-      <TableView stylesheets="@../css/table.css">
-        <columns>
-          <TableColumn prefWidth="200.0" text="NAZOV" />
-          <TableColumn prefWidth="50.0" text="CENA" />
-        </columns>
-      </TableView>
       <HBox alignment="CENTER">
          <children>
-            <TextField maxHeight="1.7976931348623157E308" prefWidth="50.0" promptText="ID" style="-fx-background-color: #636363; -fx-border-color: white;">
+            <TableView fx:id="tableAdmin2" maxWidth="-Infinity" prefWidth="300.0" stylesheets="@../css/table.css">
+              <columns>
+                <TableColumn fx:id="col_id_kos" prefWidth="25.0" text="ID" />
+                <TableColumn fx:id="col_nazov_kos" prefWidth="200.0" text="NAZOV" />
+                  <TableColumn fx:id="col_cena_kos" prefWidth="50.0" text="CENA" />
+              </columns>
+            </TableView>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_RIGHT" prefWidth="200.0">
+         <children>
+            <Label fx:id="countCena" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER">
+         <children>
+            <TextField fx:id="idKos" maxHeight="1.7976931348623157E308" prefWidth="50.0" promptText="ID" style="-fx-background-color: #636363; -fx-border-color: white;">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin></TextField>
@@ -44,6 +61,21 @@
                   <Font name="Bodoni MT" size="20.0" />
                </font>
             </Button>
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" prefWidth="200.0">
+         <children>
+            <Label fx:id="errorKosText" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
    </children>
