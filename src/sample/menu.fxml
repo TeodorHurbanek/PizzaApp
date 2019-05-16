@@ -64,5 +64,10 @@
             <Insets top="40.0" />
          </HBox.margin>
       </VBox>
+      <VBox fx:id="addButton">
+         <children>
+            <Button fx:id="addButtonTo" contentDisplay="CENTER" mnemonicParsing="false" text=" Vlozit do kosiku" translateY="430.0" />
+         </children>
+      </VBox>
    </children>
 </HBox>

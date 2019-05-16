@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -71,6 +72,28 @@ public class MainController implements Initializable {
         }
         System.out.println("U ve clicked on MENUpage");
     }
+//  button kos - metoda
+    private void onKosclick(ActionEvent event){
+        try {
+            FXMLLoader fxmlLoader = loadFXML("kos");
+
+            Parent parent = fxmlLoader.load();
+            mainPage.setCenter(parent);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        System.out.println("Klikli ste na kos");
+    }
+
+//    Button addButton = new Button("Add");
+//
+//    public Button getAddButton() {
+//        KosAdController pizza = new KosAdController();
+//        pizza.setPizzaCena();
+//        pizza.
+//    }
+
+
 
     public void onLoginClick(ActionEvent event) {
         try {
@@ -99,6 +122,9 @@ public class MainController implements Initializable {
         }
         System.out.println("U ve clicked on KOSpage");
     }
+
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
